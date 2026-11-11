@@ -20,7 +20,7 @@
 #   C 无可用房间 -> 无 178 + 可读原因消息
 #   D 未登记目标 -> 无 178 + 联系管理员消息
 #   E 游客       -> 无查询、无 178 (桩侧请求数不增)
-#   F MCA 不可达 -> 无 178, 日志为查询失败 (停桩后手动执行)
+#   F MCA 不可达 -> 停桩后有分配的玩家也留大厅 (查询失败兜底)
 set -uo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
@@ -71,8 +71,19 @@ else
   fail=1
 fi
 
+echo "===== F MCA 不可达 -> 静默留大厅 (查询失败兜底) ====="
+# 停桩 = MCA 整体不可达; 持有有效分配的玩家也不得被卡住/误跳转,
+# Cascade 侧应记 WARN "assignment query failed" (见其日志).
+kill $STUB_PID 2>/dev/null
+sleep 0.5
+check "F MCA 不可达, 有分配的玩家也留大厅" "$BIN" stay "$GAME" e2e-player-a 4
+# 恢复桩 (供后续手工复跑); 退出时由 trap 统一清理
+python3 "$HERE/stub_mca.py" "$STUB_PORT" "$STUB_TOKEN" >>"$HERE/stub_mca.log" 2>&1 &
+STUB_PID=$!
+sleep 0.5
+
 echo
 echo "===== 桩 MCA 请求记录 ====="
 cat "$HERE/stub_mca.log"
 echo
-if [ "$fail" -eq 0 ]; then echo "==> 场景全部通过 (F: 停桩后另行执行)"; else echo "==> 存在失败场景"; exit 1; fi
+if [ "$fail" -eq 0 ]; then echo "==> 场景全部通过 (A-F)"; else echo "==> 存在失败场景"; exit 1; fi
