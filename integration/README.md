@@ -4,7 +4,7 @@
 |---|---|
 | `mcprobe/` | 最小 RW 客户端探针：真实协议会话，断言"有分配 → 178 真跳转落地 / 无分配 → 留大厅" |
 | `stub_mca.py` | MCA 分配端点的契约形状桩（信封/字段对齐 matchcorearena-business.yaml，按 uuid 分场景） |
-| `run_scenario.sh` | 场景编排：A 有分配 / B 无分配 / C 无可用房间 / D 未登记目标 / E 游客不查询 / F MCA 不可达 |
+| `run_scenario.sh` | 场景编排：A 有分配 / B 无分配 / C 无可用房间 / D 未登记目标 / E 游客不查询 / F MCA 不可达（脚本内自动停桩复桩） |
 
 ## 验证边界（如实）
 
