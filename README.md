@@ -17,8 +17,8 @@ MCA-Cascade is a standard-library-only Go decision and client library for connec
 
 ## Learn more
 
-- [HA Wiki](https://wiki.mcnb.dev/) — ecosystem documentation
-- [HA Contract](https://github.com/CoreMatch/HA-Contract) — interface contracts
+- [Armorial Wiki](https://wiki.mcnb.dev/) — ecosystem documentation
+- [Armorial Contract](https://github.com/CoreMatch/HA-Contract) — interface contracts
 - [Cascade](https://github.com/CoreMatch/Cascade) — host proxy project
 - [MatchCoreArena-VelocityGate](https://github.com/CoreMatch/MatchCoreArena-VelocityGate) — Velocity-side routing plugin
 

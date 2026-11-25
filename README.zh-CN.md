@@ -17,8 +17,8 @@ MCA-Cascade 是一个仅依赖 Go 标准库的决策与客户端库，用于把 
 
 ## 进一步了解
 
-- [HA Wiki](https://wiki.mcnb.dev/) — 生态文档
-- [HA Contract](https://github.com/CoreMatch/HA-Contract) — 接口契约
+- [Armorial Wiki](https://wiki.mcnb.dev/) — 生态文档
+- [Armorial Contract](https://github.com/CoreMatch/HA-Contract) — 接口契约
 - [Cascade](https://github.com/CoreMatch/Cascade) — 宿主代理项目
 - [MatchCoreArena-VelocityGate](https://github.com/CoreMatch/MatchCoreArena-VelocityGate) — Velocity 侧路由插件
 

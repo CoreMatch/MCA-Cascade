@@ -12,4 +12,4 @@
   玩家绑定表（SQLite）、redis 认证缓存读取路径；
 - 桩替：MCA 服务（契约形状桩）、玩家认证态（直接种 redis，
   等价于 /login 成功后的 `SetAuthenticated` 结果）。
-  本机栈不含 HRPAuth，`/login` 凭据核验腿不在本联调范围内。
+  本机栈不含 Armorial，`/login` 凭据核验腿不在本联调范围内。
